@@ -45,6 +45,12 @@ Metoda `load()` má jako druhý parametr `callable` `$fallback`, který je využ
 /--php
 $value = $cache->load($key, function(& $dependencies) {
 	// nějaká data
+	
+	//nastavit expiraci
+	$dependencies = array(
+		Cache::EXPIRE => '1 day'
+	);
+	
 	return 15;
 });
 \--
